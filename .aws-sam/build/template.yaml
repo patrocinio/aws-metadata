@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'Update Portfolio
+
+  '
+Globals:
+  Function:
+    Timeout: 30
+    Tracing: Active
+  Api:
+    TracingEnabled: true
+Resources:
+  MetadataFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: MetadataFunction
+      Handler: server.run
+      Runtime: nodejs16.x
+      Architectures:
+      - x86_64
+      Events:
+        Metadata:
+          Type: Api
+          Properties:
+            Path: /metadata
+            Method: get
+    Metadata:
+      SamResourceId: MetadataFunction
+Outputs:
+  UpdatePortfolioApi:
+    Description: API Gateway endpoint URL for Prod stage for Hello World function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/metadata

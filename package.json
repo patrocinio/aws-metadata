@@ -1,0 +1,10 @@
+{
+    "name": "metadata",
+    "main": "server.js",
+    "version": "0.1",
+    "type": "module",
+    "dependencies": {
+        "got": "*",
+        "express": "*"
+    }
+}

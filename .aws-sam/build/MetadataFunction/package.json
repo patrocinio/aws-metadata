@@ -1,0 +1,9 @@
+{
+    "name": "portfolio",
+    "main": "portfolio.js",
+    "version": "0.1",
+    "type": "module",
+    "dependencies": {
+        "got": "*"
+    }
+}
